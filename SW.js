@@ -10,14 +10,9 @@ const preCacheUrls = [
 
 // install handler will take care of precaching the resources
 self.addEventListener('install', event => {
-  console.log('installing V1')
-  self.skipWaiting()
-
+  console.log('Installing service worker')
   event.waitUntil(
-    caches
-      .open(preCache)
-      .then(cache => cache.addAll(preCacheUrls))
-      .then(() => self.skipWaiting())
+    caches.open(preCache).then(cache => cache.addAll(preCacheUrls))
   )
 })
 

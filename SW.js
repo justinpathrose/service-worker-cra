@@ -1,11 +1,12 @@
 // Name of the caches used. Update the name to V2 etc when the local
 // resources are updated to trigger the install event again
-const preCache = 'preCache-V10'
+const preCache = 'preCache-V0'
 
 const preCacheUrls = [
   './', // Alias for index.html
   'cat.jpg',
   'dog.jpg',
+  'other.jpg',
 ]
 
 // install handler will take care of precaching the resources

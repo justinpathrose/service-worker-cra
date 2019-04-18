@@ -1,64 +1,84 @@
-// Name of the caches used. Update the name to V2 etc when the local
-// resources are updated to trigger the install event again
-const preCache = 'preCache-V0'
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
+importScripts(
+  'https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js'
+)
 
-const preCacheUrls = [
-  './', // Alias for index.html
-  'cat.jpg',
-  'dog.jpg',
-  'other.jpg',
-]
+if (workbox) {
+  console.log(`Workbox is loaded`)
+  workbox.core.setCacheNameDetails({
+    prefix: 'service-worker',
+    suffix: 'V0',
+    precache: 'PreCache',
+  })
 
-// install handler will take care of precaching the resources
-self.addEventListener('install', event => {
-  console.log('Installing service worker')
-  event.waitUntil(
-    caches.open(preCache).then(cache => cache.addAll(preCacheUrls))
-  )
-})
-
-// activate handler takes care of cleaning up the old caches
-self.addEventListener('activate', event => {
-  const currentCaches = [preCache]
-  event.waitUntil(
-    caches
-      .keys()
-      .then(cacheNames => {
-        console.log(cacheNames)
-        return cacheNames.filter(
-          cacheName => !currentCaches.includes(cacheName)
-        )
+  self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+      console.log('Skip Waiting message received')
+      self.skipWaiting()
+      self.clients.claim()
+      self.clients.matchAll().then(clients => {
+        clients.forEach(client => client.postMessage({ type: 'RELOAD_PAGE' }))
       })
-      .then(cachesToDelete => {
-        console.log(cachesToDelete)
-        return Promise.all(
-          cachesToDelete.map(cacheToDelete => {
-            return caches.delete(cacheToDelete)
-          })
-        )
-      })
-      .then(() => self.clients.claim())
-  )
-})
+    }
+  })
 
-self.addEventListener('fetch', function(event) {
-  const url = new URL(event.request.url)
-
-  // serve cat.jpg from the cache if the request is from
-  // the same-origin and the pathname is dog.jpg
-  console.log('matched fetch function')
-  /* if (url.origin === location.origin && url.pathname === '/dog.jpg') {
-    console.log('match for dog.jpg, responding wih cat.jpg')
-    event.respondWith(caches.match('/cat.jpg'))
-  } */
-
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      // Cache hit - return response
-      if (response) {
-        return response
-      }
-      return fetch(event.request)
-    })
-  )
-})
+  /**
+   * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+   * requests for URLs in the manifest.
+   * See https://goo.gl/S9QRab
+   */
+  workbox.precaching.suppressWarnings()
+  workbox.precaching.precacheAndRoute([
+  {
+    "url": "icon.png",
+    "revision": "494b86e9d534028c4b233550341a67f1"
+  },
+  {
+    "url": "index.html",
+    "revision": "ee8c25f11a2a1895d2e0c6e166e81415"
+  },
+  {
+    "url": "precache-manifest.50ba2d2e26c96d08bf955579dcede15e.js",
+    "revision": "50ba2d2e26c96d08bf955579dcede15e"
+  },
+  {
+    "url": "service-worker.js",
+    "revision": "ecbd32a7b13d9e4d5c1e760d23cb9f2f"
+  },
+  {
+    "url": "static/css/main.90d16be2.chunk.css",
+    "revision": "67b5372d42299dd447883bd300e7359b"
+  },
+  {
+    "url": "static/js/2.65aa1cca.chunk.js",
+    "revision": "9d8ca240b9c16bb11084b0499f71068d"
+  },
+  {
+    "url": "static/js/main.771633d6.chunk.js",
+    "revision": "05cf3b416aa19a9e482bd104dbb46b88"
+  },
+  {
+    "url": "static/js/runtime~main.f550a33c.js",
+    "revision": "e95bacdbdcbb3656587117e720cb5434"
+  }
+], {
+    cleanUrls: false,
+    cleanupOutdatedCaches: true,
+  })
+  workbox.routing.registerNavigationRoute('/index.html', {
+    blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/],
+  })
+} else {
+  console.log(`Workbox didn't load`)
+}

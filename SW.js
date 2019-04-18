@@ -22,28 +22,31 @@ if (workbox) {
     precache: 'PreCache',
   })
 
-  self.addEventListener('message', event => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-      console.log(
-        'Skip Waiting message received from client at service worker: ',
-        self
-      )
-      self.skipWaiting()
-      console.log('after skip waiting')
-      // self.clients.claim()
-      console.log('after clients claim')
-      self.clients
-        .matchAll()
-        .then(clients => {
-          console.log(clients)
-          clients.forEach(client => {
-            console.log(client)
-            client.postMessage({ type: 'RELOAD_PAGE' })
+  self.addEventListener(
+    'message',
+    (event => {
+      if (event.data && event.data.type === 'SKIP_WAITING') {
+        console.log(
+          'Skip Waiting message received from client at service worker: ',
+          this
+        )
+        this.skipWaiting()
+        console.log('after skip waiting')
+        // self.clients.claim()
+        console.log('after clients claim')
+        this.clients
+          .matchAll()
+          .then(clients => {
+            console.log(clients)
+            clients.forEach(client => {
+              console.log(client)
+              client.postMessage({ type: 'RELOAD_PAGE' })
+            })
           })
-        })
-        .catch(err => console.log('Error sending message to clients'))
-    }
-  })
+          .catch(err => console.log('Error sending message to clients'))
+      }
+    }).bind(self)
+  )
 
   /**
    * The workboxSW.precacheAndRoute() method efficiently caches and responds to

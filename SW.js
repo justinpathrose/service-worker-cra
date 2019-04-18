@@ -1,6 +1,6 @@
 // Name of the caches used. Update the name to V2 etc when the local
 // resources are updated to trigger the install event again
-const preCache = 'preCache-V7'
+const preCache = 'preCache-V8'
 
 const preCacheUrls = [
   './', // Alias for index.html
@@ -28,11 +28,13 @@ self.addEventListener('activate', event => {
     caches
       .keys()
       .then(cacheNames => {
+        console.log(cacheNames)
         return cacheNames.filter(
           cacheName => !currentCaches.includes(cacheName)
         )
       })
       .then(cachesToDelete => {
+        console.log(cachesToDelete)
         return Promise.all(
           cachesToDelete.map(cacheToDelete => {
             return caches.delete(cacheToDelete)

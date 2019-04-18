@@ -32,7 +32,7 @@ if (workbox) {
       console.log('after skip waiting')
       self.clients.claim()
       console.log('after clients claim')
-      self.clients
+      /* self.clients
         .matchAll()
         .then(clients => {
           console.log(clients)
@@ -41,7 +41,7 @@ if (workbox) {
             client.postMessage({ type: 'RELOAD_PAGE' })
           })
         })
-        .catch(err => console.log('Error sending message to clients'))
+        .catch(err => console.log('Error sending message to clients')) */
     }
   })
 

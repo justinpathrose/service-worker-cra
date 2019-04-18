@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/service-worker-cra/static/js/runtime~main.f550a33c.js"
   },
   {
-    "revision": "5efb41f4d34e4ae8b5a4",
-    "url": "/service-worker-cra/static/js/main.cee06263.chunk.js"
+    "revision": "f85e0f153bb71212eb8c",
+    "url": "/service-worker-cra/static/js/main.ef00a5a2.chunk.js"
   },
   {
     "revision": "681b51057d74cfa8975d",
     "url": "/service-worker-cra/static/js/2.65aa1cca.chunk.js"
   },
   {
-    "revision": "5efb41f4d34e4ae8b5a4",
-    "url": "/service-worker-cra/static/css/main.90d16be2.chunk.css"
+    "revision": "f85e0f153bb71212eb8c",
+    "url": "/service-worker-cra/static/css/main.f0c4ce84.chunk.css"
   },
   {
-    "revision": "c25d25179605e0b4d96f415c1079c987",
+    "revision": "c82f9968adfd3f42865ac093856de241",
     "url": "/service-worker-cra/index.html"
   }
 ];

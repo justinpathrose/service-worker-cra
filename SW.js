@@ -27,9 +27,12 @@ if (workbox) {
       console.log('Skip Waiting message received from client at service worker')
       self.skipWaiting()
       self.clients.claim()
-      self.clients.matchAll().then(clients => {
-        clients.forEach(client => client.postMessage({ type: 'RELOAD_PAGE' }))
-      })
+      self.clients
+        .matchAll()
+        .then(clients => {
+          clients.forEach(client => client.postMessage({ type: 'RELOAD_PAGE' }))
+        })
+        .catch(err => console.log('Error sending message to clients'))
     }
   })
 

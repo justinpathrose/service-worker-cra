@@ -22,6 +22,7 @@ if (workbox) {
     precache: 'PreCache',
   })
 
+  console.log(self.clients)
   self.addEventListener(
     'message',
     (event => {

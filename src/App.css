@@ -23,6 +23,12 @@
   color: #61dafb;
 }
 
+.App-refresh {
+  top: 75%;
+  width: 90%;
+  left: 5%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

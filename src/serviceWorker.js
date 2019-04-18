@@ -10,10 +10,15 @@ function register() {
             'Service worker registration successful, scope is: ',
             registration.scope
           )
+          navigator.serviceWorker.addEventListener('message', event => {
+            if (event.data.type === 'RELOAD_PAGE') {
+              console.log(
+                'Reload page event received from service worker at client'
+              )
+              window.location.reload()
+            }
+          })
           // fired when SW.js changes
-          document.getElementById('service-worker-update').onclick = () => {
-            registration.update()
-          }
           registration.onupdatefound = () => {
             // when updatefound event is triggered, registration.installing is set
             const installingWorker = registration.installing
@@ -27,6 +32,11 @@ function register() {
                     // It's the perfect time to display a "New content is available; please refresh."
                     // message in the page's interface.
                     console.log('New or updated content is available.')
+                    const element = document.getElementsByClassName(
+                      'App-refresh'
+                    )
+                    element[0].classList.remove('hidden')
+                    element[0].classList.add('block')
                   } else {
                     // At this point, everything has been precached.
                     // It's the perfect time to display a "Content is cached for offline use." message.

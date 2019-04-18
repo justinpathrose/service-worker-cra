@@ -50,12 +50,11 @@ self.addEventListener('fetch', function(event) {
   // serve cat.jpg from the cache if the request is from
   // the same-origin and the pathname is dog.jpg
   console.log('matched fetch function')
-  if (url.origin === location.origin && url.pathname === '/dog.jpg') {
+  /* if (url.origin === location.origin && url.pathname === '/dog.jpg') {
     console.log('match for dog.jpg, responding wih cat.jpg')
     event.respondWith(caches.match('/cat.jpg'))
-  }
+  } */
 
-  /* 
   event.respondWith(
     caches.match(event.request).then(function(response) {
       // Cache hit - return response
@@ -65,5 +64,4 @@ self.addEventListener('fetch', function(event) {
       return fetch(event.request)
     })
   )
-  */
 })

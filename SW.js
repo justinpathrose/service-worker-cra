@@ -1,6 +1,6 @@
 // Name of the caches used. Update the name to V2 etc when the local
 // resources are updated to trigger the install event again
-const preCache = 'preCache-V9'
+const preCache = 'preCache-V10'
 
 const preCacheUrls = [
   './', // Alias for index.html

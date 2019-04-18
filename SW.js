@@ -43,19 +43,19 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "c82f9968adfd3f42865ac093856de241"
+    "revision": "f71db0cef9d91e5cb58a1f159cb6f7a8"
   },
   {
     "url": "other.jpg",
     "revision": "7c858c1e9e6c971cc360141e92fc918e"
   },
   {
-    "url": "precache-manifest.301c79f0f81503b1c494ef8328ae1ae4.js",
-    "revision": "301c79f0f81503b1c494ef8328ae1ae4"
+    "url": "precache-manifest.1bbccbe843f0100b6b84b97a01438c91.js",
+    "revision": "1bbccbe843f0100b6b84b97a01438c91"
   },
   {
     "url": "service-worker.js",
-    "revision": "21c4f520a01f0f973ed92be58c870c21"
+    "revision": "618118223b0d913f7c3dd53ced68735e"
   },
   {
     "url": "static/css/main.f0c4ce84.chunk.css",
@@ -66,8 +66,8 @@ if (workbox) {
     "revision": "9d8ca240b9c16bb11084b0499f71068d"
   },
   {
-    "url": "static/js/main.ef00a5a2.chunk.js",
-    "revision": "79e9eb2dbb9d5a4bcf18e1bac918d07a"
+    "url": "static/js/main.2d23b420.chunk.js",
+    "revision": "43ffd402ed018f86eab924f97c0ddff5"
   },
   {
     "url": "static/js/runtime~main.f550a33c.js",

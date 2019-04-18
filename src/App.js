@@ -1,21 +1,19 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react'
+import './App.css'
 
 class App extends Component {
   componentDidMount() {
     setTimeout(() => {
-      const img = new Image();
-      img.src = "./dog.jpg";
-      document.body.appendChild(img);
-    }, 3000);
+      const img = new Image()
+      img.src = './dog.jpg'
+      document.body.appendChild(img)
+    }, 3000)
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -29,8 +27,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

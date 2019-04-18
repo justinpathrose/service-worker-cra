@@ -6,6 +6,10 @@ function register() {
       navigator.serviceWorker
         .register('SW.js')
         .then(registration => {
+          console.log(
+            'Service worker registration successful, scope is: ',
+            registration.scope
+          )
           // fired when SW.js changes
           document.getElementById('service-worker-update').onclick = () => {
             registration.update()

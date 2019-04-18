@@ -22,30 +22,6 @@ if (workbox) {
     precache: 'PreCache',
   })
 
-  console.log(self.clients)
-  self.addEventListener('message', event => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-      console.log(
-        'Skip Waiting message received from client at service worker: ',
-        self
-      )
-      self.skipWaiting()
-      console.log('after skip waiting')
-      // self.clients.claim()
-      console.log('after clients claim')
-      self.clients
-        .matchAll()
-        .then(clients => {
-          console.log(clients)
-          clients.forEach(client => {
-            console.log(client)
-            client.postMessage({ type: 'RELOAD_PAGE' })
-          })
-        })
-        .catch(err => console.log('Error sending message to clients'))
-    }
-  })
-
   /**
    * The workboxSW.precacheAndRoute() method efficiently caches and responds to
    * requests for URLs in the manifest.
@@ -67,19 +43,19 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "17531488e876e641153bfe5c8aa42e5c"
+    "revision": "6f1ad46933d4c8af01bda3ab893a2a86"
   },
   {
     "url": "other.jpg",
     "revision": "7c858c1e9e6c971cc360141e92fc918e"
   },
   {
-    "url": "precache-manifest.2e2bdc8f298dfe9348935d13ab01bcf2.js",
-    "revision": "2e2bdc8f298dfe9348935d13ab01bcf2"
+    "url": "precache-manifest.4b3a07644a37e2e518dc1b02da8364da.js",
+    "revision": "4b3a07644a37e2e518dc1b02da8364da"
   },
   {
     "url": "service-worker.js",
-    "revision": "0522f7fa4d654248229e7c55b288cbbc"
+    "revision": "397fcdd72b6d2122e72fa61871f088d7"
   },
   {
     "url": "static/css/main.90d16be2.chunk.css",
@@ -90,8 +66,8 @@ if (workbox) {
     "revision": "9d8ca240b9c16bb11084b0499f71068d"
   },
   {
-    "url": "static/js/main.3055aa42.chunk.js",
-    "revision": "0eb717f35fe8d1f536c58c3438b43a29"
+    "url": "static/js/main.843c04d6.chunk.js",
+    "revision": "e9a71ec2bf0e96c4c3f83a2377d3f81e"
   },
   {
     "url": "static/js/runtime~main.f550a33c.js",

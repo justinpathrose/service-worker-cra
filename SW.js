@@ -35,7 +35,11 @@ if (workbox) {
       self.clients
         .matchAll()
         .then(clients => {
-          clients.forEach(client => client.postMessage({ type: 'RELOAD_PAGE' }))
+          console.log(clients)
+          clients.forEach(client => {
+            console.log(client)
+            client.postMessage({ type: 'RELOAD_PAGE' })
+          })
         })
         .catch(err => console.log('Error sending message to clients'))
     }

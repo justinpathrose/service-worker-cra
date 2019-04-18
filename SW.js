@@ -33,7 +33,7 @@ if (workbox) {
         )
         this.skipWaiting()
         console.log('after skip waiting')
-        // self.clients.claim()
+        this.clients.claim()
         console.log('after clients claim')
         this.clients
           .matchAll()

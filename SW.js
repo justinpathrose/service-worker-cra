@@ -41,12 +41,24 @@ if (workbox) {
   workbox.precaching.suppressWarnings()
   workbox.precaching.precacheAndRoute([
   {
+    "url": "cat.jpg",
+    "revision": "c46f532449298c55b373384ad06f1272"
+  },
+  {
+    "url": "dog.jpg",
+    "revision": "f261979046201e8cdd61c169dded07cf"
+  },
+  {
     "url": "icon.png",
     "revision": "494b86e9d534028c4b233550341a67f1"
   },
   {
     "url": "index.html",
     "revision": "ee8c25f11a2a1895d2e0c6e166e81415"
+  },
+  {
+    "url": "other.jpg",
+    "revision": "7c858c1e9e6c971cc360141e92fc918e"
   },
   {
     "url": "precache-manifest.50ba2d2e26c96d08bf955579dcede15e.js",

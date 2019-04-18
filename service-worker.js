@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/github.io/service-worker-cra/precache-manifest.801e3e6bdcadd196b687a59f006fa789.js"
+  "/service-worker-cra/precache-manifest.91fb7ea419dff9c3aa8c16ea7191605b.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/github.io/service-worker-cra/index.html", {
+workbox.routing.registerNavigationRoute("/service-worker-cra/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

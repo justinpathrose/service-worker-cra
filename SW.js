@@ -24,7 +24,7 @@ if (workbox) {
 
   self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
-      console.log('Skip Waiting message received')
+      console.log('Skip Waiting message received from client at service worker')
       self.skipWaiting()
       self.clients.claim()
       self.clients.matchAll().then(clients => {
@@ -54,19 +54,19 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "ee8c25f11a2a1895d2e0c6e166e81415"
+    "revision": "bcdddf3a0848a6513d59d1aa47692d12"
   },
   {
     "url": "other.jpg",
     "revision": "7c858c1e9e6c971cc360141e92fc918e"
   },
   {
-    "url": "precache-manifest.50ba2d2e26c96d08bf955579dcede15e.js",
-    "revision": "50ba2d2e26c96d08bf955579dcede15e"
+    "url": "precache-manifest.dc6892681fc6c42a6b9fc8144cee1945.js",
+    "revision": "dc6892681fc6c42a6b9fc8144cee1945"
   },
   {
     "url": "service-worker.js",
-    "revision": "ecbd32a7b13d9e4d5c1e760d23cb9f2f"
+    "revision": "46194dd94f252c9c5794b763b7daf6d4"
   },
   {
     "url": "static/css/main.90d16be2.chunk.css",
@@ -77,8 +77,8 @@ if (workbox) {
     "revision": "9d8ca240b9c16bb11084b0499f71068d"
   },
   {
-    "url": "static/js/main.771633d6.chunk.js",
-    "revision": "05cf3b416aa19a9e482bd104dbb46b88"
+    "url": "static/js/main.fa41b16c.chunk.js",
+    "revision": "39548c638e59374effaaf3dc89d5d24f"
   },
   {
     "url": "static/js/runtime~main.f550a33c.js",

@@ -24,9 +24,14 @@ if (workbox) {
 
   self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
-      console.log('Skip Waiting message received from client at service worker')
+      console.log(
+        'Skip Waiting message received from client at service worker: ',
+        self
+      )
       self.skipWaiting()
+      console.log('after skip waiting')
       self.clients.claim()
+      console.log('after clients claim')
       self.clients
         .matchAll()
         .then(clients => {

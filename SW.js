@@ -23,6 +23,7 @@ if (workbox) {
   })
 
   self.addEventListener('message', function(event) {
+    console.log('in service worker message, do skip waiting')
     if (event.data.action === 'skipWaiting') {
       self.skipWaiting()
     }

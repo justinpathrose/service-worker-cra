@@ -22,6 +22,12 @@ if (workbox) {
     precache: 'PreCache',
   })
 
+  self.addEventListener('message', function(event) {
+    if (event.data.action === 'skipWaiting') {
+      self.skipWaiting()
+    }
+  })
+
   /**
    * The workboxSW.precacheAndRoute() method efficiently caches and responds to
    * requests for URLs in the manifest.
@@ -43,19 +49,19 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "5ef3bf78990a9bc24f403b0c6fcb1453"
+    "revision": "e66ce705fd56933878dda4884854e3f9"
   },
   {
     "url": "other.jpg",
     "revision": "7c858c1e9e6c971cc360141e92fc918e"
   },
   {
-    "url": "precache-manifest.0f13f1ebdc9ea7688c1188e4832f53c0.js",
-    "revision": "0f13f1ebdc9ea7688c1188e4832f53c0"
+    "url": "precache-manifest.6704e4fd3e8d1a7ec448a768fada0364.js",
+    "revision": "6704e4fd3e8d1a7ec448a768fada0364"
   },
   {
     "url": "service-worker.js",
-    "revision": "416c320bc6fc15e586ad6f9ce1b5a25e"
+    "revision": "b2369b7d16093f1c900838ff95ea902f"
   },
   {
     "url": "static/css/main.f0c4ce84.chunk.css",
@@ -66,8 +72,8 @@ if (workbox) {
     "revision": "9d8ca240b9c16bb11084b0499f71068d"
   },
   {
-    "url": "static/js/main.5b59b150.chunk.js",
-    "revision": "6e2560860612647398e2ea55f48dd341"
+    "url": "static/js/main.4df7dd95.chunk.js",
+    "revision": "33cb1461da4ad7d5d70af67113a3c435"
   },
   {
     "url": "static/js/runtime~main.f550a33c.js",
